@@ -1,0 +1,50 @@
+.HomeFollow{
+    width: 25rem;
+min-height: 100vh;
+overflow: hidden;
+
+
+}
+
+.whofollow{
+    width: 19rem;
+height: 15.5rem;
+padding: 15px;
+margin-left: 2rem;
+margin-top: 2rem;
+background: rgb(31, 30, 30);
+border-radius: 20px 20px 0px 0px;
+overflow: hidden;
+}
+
+.whofollow h2{
+margin-bottom: 0.5rem;
+}
+
+.seemore{
+    background: rgb(31, 30, 30);
+    width: 19rem;
+    padding: 15px;
+    margin-left: 2rem;
+    height: 2rem;
+    border-radius: 0px 0px 20px 20px;
+}
+
+@media only screen and (max-width: 800px) {
+    body {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    body::-webkit-scrollbar {
+        display: none;
+    }
+    .HomeFollow{
+        width: 25rem;
+    min-height: 100vh;
+    overflow: hidden;
+    display: none;
+    
+    }
+    
+}

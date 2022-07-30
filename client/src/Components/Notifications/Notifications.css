@@ -1,0 +1,12 @@
+.notifi{
+    border-top: 1px solid rgb(85, 83, 83);
+    border-bottom: 1px solid rgb(85, 83, 83);
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    padding: 0px 20px
+}
+
+.message{
+    display: flex;
+}

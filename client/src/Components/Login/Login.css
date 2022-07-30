@@ -1,0 +1,111 @@
+ ::-webkit-scrollbar {
+    width: 9px; 
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(155, 155, 155, 0.5);
+    border-radius: 20px;
+    border: transparent;
+    color: black;
+  } 
+
+.regi_main{
+    display: flex;
+    /* width: 100vw; */
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+    scrollbar-width: thin;
+    
+}
+    .regi {
+        /* border: 4px solid orange; */
+        width: 25rem;
+        height: 30rem;
+        margin: 10px;
+        display: flex;
+        justify-content: center; 
+         align-items: center;
+        flex-direction: column;  
+        margin-top: 20px;
+    }
+    
+    .regi_name {
+        font-size: 30px;
+        margin-bottom: 20px;
+        margin-top: 35px;
+        color: orange;
+    }
+    
+    .regi_in {
+        margin-bottom: 25px;
+        color: black;
+    }
+    
+    .regi_input {
+        outline: none !important;
+        background-color: black;
+        width: 20rem;
+        height: 2rem;
+        border: none;
+        font-size: 30px;
+        border-bottom: 1px solid orange;
+        color: white;
+        padding-bottom: 15px;
+    }
+    
+    .regi_button {
+        display: flex;
+        flex-direction: column;
+        
+    }
+    
+    .regi_button_main {
+        width: 20rem;
+        margin-bottom: 10px;
+        height: 2.5rem;
+        background-color: rgb(230, 162, 18);
+        border: none;
+        color: black;
+        font-size: 20px;
+        border-radius: 30px;
+        cursor: pointer;
+    
+    }
+    
+    .regi_button_test {
+        width: 15rem;
+        height: 2rem;
+        background-color: orange;
+        border: none;
+        color: black;
+        font-size: 15px;
+        margin: 10px auto;
+        border-radius: 30px;
+        cursor: pointer;
+    }
+
+    @media only screen and (max-width: 800px) {
+        body {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    
+        body::-webkit-scrollbar {
+            display: none;
+        }
+    
+        .regi_main{
+            display: flex;
+            /* width: 100vw; */
+            justify-content: center;
+            align-items: center;
+            /* border: 1px solid; */
+            
+        }
+    
+    }

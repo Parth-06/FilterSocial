@@ -1,0 +1,205 @@
+.EditProfile{
+    position: fixed;
+    z-index: 1;
+    background-color: rgba(91, 112, 131, 0.4);
+    opacity: 0.8;   
+    width:100%;
+    height: 100%;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    left: 0;
+    margin: auto;
+}
+
+.EditProfile_box{
+    margin: 2rem 23rem;
+    background-color: black;
+    width: 40vw;
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: 2;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 20px;
+   
+} 
+
+.edit_header{
+    /* border: 1px solid; */
+    height: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.fa-times{
+font-size: 20px;
+cursor: pointer;
+margin-right: 2rem;
+}
+
+.save_button{
+    margin-left: 17rem;
+    border: none;
+    width: 5rem;
+    height: 2rem;
+    border-radius: 20px;
+     font-weight: 700;
+     font-size: 15px;
+     cursor: pointer;
+}
+.profile_pic{
+    border: 1px solid;
+    height: 15rem;
+    width: 15rem;
+    border-radius: 135px;
+    margin: 25px auto;
+    cursor: pointer;
+}
+
+.profie_update{
+    /* border: 1px solid; */
+    height: 15rem;
+    margin: auto;
+    width: 34rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+   
+}
+
+.regi_input_profile{
+outline: none !important;
+background-color: black;
+width: 30rem;
+height: 2rem;
+border: none;   
+font-size: 30px;
+border-bottom: 2px solid orange;
+color: white;
+padding-bottom: 10px;
+}
+
+.profile_pic_center{
+    display: flex;
+}
+
+.warning{
+    text-align: center;
+    color: rgb(116, 116, 116);
+}
+
+@media only screen and (max-width: 800px) {
+    body {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    body::-webkit-scrollbar {
+        display: none;
+    }
+
+    .EditProfile{
+        position: fixed;
+        z-index: 1;
+        background-color: black;
+        opacity: 1;   
+        width:100%;
+        height: 100%;
+        top: 0;
+        display: flex;
+        justify-content: center;
+        left: 0;
+        margin: auto;
+        display: flex;
+        overflow: scroll;
+    }
+    .EditProfile_box{
+        margin: 0rem 0rem;
+        background-color: black;
+        width: 100%;
+        top: 0;
+        left: 0;
+        position: absolute;
+        z-index: 1;
+        border-radius: 0px;
+        display: flex;
+        flex-direction: column;
+        padding: 0px 0px;
+        height: 100%;
+        overflow: scroll;
+        margin-top: 0rem;
+        
+    } 
+    .edit_header{
+        
+        height: 3rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px 15px;
+    }
+
+    
+    .fa-times{
+    font-size: 24px;
+    cursor: pointer;
+    margin-right: 2rem;
+    }
+    
+    .save_button{
+        margin-left: 0rem;
+        border: none;
+        width: 5rem;
+        height: 2rem;
+        border-radius: 20px;
+         font-weight: 700;
+         font-size: 15px;
+         cursor: pointer;
+    }
+    .profile_pic{
+        border: 1px solid;
+        height: 15rem;
+        width: 15rem;
+        border-radius: 135px;
+        margin: 25px auto;
+        cursor: pointer;
+    }
+    
+    .profie_update{
+        /* border: 1px solid; */
+        height: 15rem;
+        margin: auto;
+        width: 93%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+       padding: 0px 10px;
+       
+    }
+    
+    .regi_input_profile{
+    outline: none !important;
+    background-color: black;
+    width: 100%;
+    height: 2rem;
+    border: none;   
+    font-size: 30px;
+    border-bottom: 2px solid orange;
+    color: white;
+    padding-bottom: 10px;
+    }
+    
+    .profile_pic_center{
+        display: flex;
+    }
+    
+    .warning{
+        text-align: center;
+        color: rgb(116, 116, 116);
+    }
+}

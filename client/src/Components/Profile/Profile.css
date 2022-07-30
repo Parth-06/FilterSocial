@@ -1,0 +1,294 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.profile_main {
+    width: 45vw;
+    border-right: 1px solid rgb(85, 83, 83);
+    margin-left: 21rem;
+    min-height: 100vh;
+    overflow: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.profile_header {
+    height: 3rem;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.fa-arrow-left {
+    margin-right: 1.5rem;
+    cursor: pointer;
+}
+
+.profile_sec {
+    min-height: 100px;
+    overflow: hidden;
+}
+
+.cover_image {
+    height: 12rem;
+    background-color: #ffa500c7;
+}
+
+.profile_image {
+    width: 8rem;
+    height: 8rem;
+    background-color: blanchedalmond;
+    border-radius: 100px;
+    margin-top: -4rem;
+    margin-left: 1.5rem;
+}
+
+.bio_sec {
+    height: 4rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.name_sec {
+    font-size: 10px;
+    margin-top: 0.5rem;
+    margin-left: 1.5rem;
+}
+
+.profile_button {
+    border: none;
+    width: 7rem;
+    font-size: 15px;
+    font-weight: 700;
+    background-color: orange;
+    height: 2.5rem;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-right: 1rem;
+    margin-top: -3rem;
+}
+
+.profile_details {
+    /* border: 1px solid; */
+    /* height: 5rem; */
+    display: flex;
+    flex-direction: column;
+    /* border-bottom: 1px solid rgb(85, 83, 83); */
+    /* padding-bottom: 21px; */
+
+}
+
+.all_profdetails {
+    /* display: flex; */
+    color: rgb(143, 141, 141);
+    font-weight: 300;
+    /* height: 2rem; */
+    align-items: center;
+
+}
+
+.all_profdetails p {
+    margin-left: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.fa-map-marker-alt {
+    margin-right: 0.5rem
+}
+
+.fa-birthday-cake {
+    margin-right: 0.5rem
+}
+
+.followers {
+    display: flex;
+    margin-left: 1.5rem;
+    /* margin-top: 1.6rem; */
+}
+
+.followers p {
+    color: rgb(143, 141, 141);
+    font-weight: 300;
+    margin-right: 1.5rem;
+    margin-left: 0.5rem;
+    padding-bottom: 2px;
+    border: 1px solid transparent;
+}
+
+.followers p:hover {
+    border-bottom: 1px solid;
+    cursor: pointer;
+}
+
+
+.bio_details {
+    color: white;
+}
+
+.bio_sec p {
+    font-size: 15px;
+    color: rgb(143, 141, 141);
+}
+
+.userspinnerstyle{
+    margin-left: 30rem;
+    margin-top: 30rem;
+}
+
+
+@media only screen and (max-width: 800px) {
+    body {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    body::-webkit-scrollbar {
+        display: none;
+    }
+
+    .profile_main {
+        width: 100%;
+        border-right: 0px solid rgb(85, 83, 83);
+        margin-left: 0rem;
+        min-height: 100vh;
+        overflow: scroll;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+
+    .profile_header {
+        height: 3rem;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+        margin-left: 1rem;
+    }
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+    .fa-arrow-left {
+        margin-right: 1.5rem;
+        cursor: pointer;
+    }
+
+    .profile_sec {
+        min-height: 100px;
+        overflow: hidden;
+    }
+
+    .cover_image {
+        height: 7rem;
+        background-color: #ffa500c7;
+    }
+
+    .profile_image {
+        width: 5.5rem;
+        height: 5.5rem;
+        background-color: blanchedalmond;
+        border-radius: 100px;
+        margin-top: -3rem;
+        margin-left: 1rem;
+    }
+
+    .bio_sec {
+        height: 4rem;
+        margin-bottom: 0rem;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .name_sec {
+        font-size: 10px;
+        margin-top: 0.5rem;
+        margin-left: 1.5rem;
+    }
+
+    .profile_button {
+        border: none;
+        width: 7rem;
+        font-size: 15px;
+        font-weight: 700;
+        background-color: orange;
+        height: 2.5rem;
+        border-radius: 50px;
+        cursor: pointer;
+        margin-right: 1rem;
+        margin-top: -2rem;
+    }
+
+    .profile_details {
+
+        display: flex;
+        flex-direction: column;
+        border-bottom: 1px solid rgb(85, 83, 83);
+    }
+
+    .all_profdetails {
+        /* display: flex; */
+        color: rgb(143, 141, 141);
+        font-weight: 300;
+        /* height: 2rem; */
+        align-items: center;
+
+    }
+
+    .all_profdetails p {
+        margin-left: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .fa-map-marker-alt {
+        margin-right: 0.5rem
+    }
+
+    .fa-birthday-cake {
+        margin-right: 0.5rem
+    }
+
+    .followers {
+        display: flex;
+        margin-left: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .followers p {
+        color: rgb(143, 141, 141);
+        font-weight: 300;
+        margin-right: 1.5rem;
+        margin-left: 0.5rem;
+        padding-bottom: 2px;
+        border: 1px solid transparent;
+    }
+
+    .followers p:hover {
+        border-bottom: 1px solid;
+        cursor: pointer;
+    }
+
+
+    .bio_details {
+        color: white;
+    }
+
+    .bio_sec p {
+        font-size: 15px;
+        color: rgb(143, 141, 141);
+    }
+   
+    #profile_main .tweets{
+        width: 100%;
+        padding-top: 5px;
+        margin-bottom: 4rem;
+    }
+
+}

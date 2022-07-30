@@ -1,0 +1,37 @@
+.bookmark_main{
+    width: 38.5rem;
+    border-right: 1px solid rgb(85, 83, 83);
+     margin-left: 21rem;
+     min-height: 100vh;
+     overflow: scroll;
+     scrollbar-width: none; 
+     -ms-overflow-style: none;
+}
+
+.bookmark_header{
+    height: 3rem;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+}
+
+@media only screen and (max-width: 800px) {
+    body {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    body::-webkit-scrollbar {
+        display: none;
+    }
+    .bookmark_main{
+        width: 100%;
+        border-right: 0px solid rgb(85, 83, 83);
+         margin-left: 0rem;
+         min-height: 100vh;
+         overflow: scroll;
+         scrollbar-width: none; 
+         -ms-overflow-style: none;
+    }
+}
