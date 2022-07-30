@@ -3,7 +3,7 @@
     height: 100vh;
     /* background: silver; */
     
-    background-image: url("C:\Users\Bhavesh\Desktop\ALL REACT PROJECTS\socialmedia\filtersocialfront\src\Components\ProfileUpdate\profilebg.png");
+    background-image: url("/src/Components/ProfileUpdate/profilebg.png");
 }
 
 
