@@ -1,5 +1,5 @@
 import React, { createContext, useReducer } from 'react'
-import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import {BrowserRouter as Router, Routes, Route, HashRouter} from "react-router-dom";
 import Profile from './Components/Profile/Profile';
 import Header from './Components/Header/Header';
 import Home from './Components/Home/Home';
@@ -22,12 +22,13 @@ import UserFollowers from './Components/Followers/UserFollowers';
 import MobileTextCompo from './Components/Home/MobileTextCompo';
 import Logout from './Components/Logout/Logout';
 import { initialstate, reducer } from './Reducers/Reducer';
+
 export const UserContext = createContext();
 const RoutingMain = ()=>{
   return (
     <>
     
-     <Router>
+     <HashRouter>
      <FetchContextProvider>
        <Header/>
        
@@ -52,7 +53,7 @@ const RoutingMain = ()=>{
        </Routes>
        <HomeFollow/>
        </FetchContextProvider>
-     </Router>
+     </HashRouter>
      
      
      </>
