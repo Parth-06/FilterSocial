@@ -178,9 +178,9 @@ const UserFollowers = () => {
           <div className="button_connect">
           {
             userDetails.following.includes(item.username) ?
-            <button className='profile_button' onClick={()=>unfollowuser(item.username)}>Unfollow</button>
+            <button className='profile_button' onClick={()=>unfollowuser(item.username)} disabled={item.username === userDetails.username}>Unfollow</button>
             :
-            <button className='profile_button' onClick={()=>followuser(item.username)}>Follow</button>
+            <button className='profile_button' onClick={()=>followuser(item.username)} disabled={item.username === userDetails.username}>Follow</button>
         
            }
           </div>

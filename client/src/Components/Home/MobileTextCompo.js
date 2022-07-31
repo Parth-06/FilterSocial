@@ -71,7 +71,7 @@ const MobileTextCompo = () => {
           },
       
           body:JSON.stringify({
-           t_id: newText.id, mtweet: newText.tweet, url: dataaa.url
+           t_id: newText.id, mtweet: newText.tweet, url: dataaa.secure_url
           })
         });
       
@@ -148,7 +148,7 @@ const MobileTextCompo = () => {
    <div className="main_mobile" style={{display:"flex", flexDirection:"column"}}>
    <div className="back">
     <i className="fas fa-arrow-left" style={{fontSize:"25px"}} onClick={()=>navigate("/")}></i>
-    <button onClick={addItem} className='home_button' >Tweet</button>
+    <button onClick={addItem} className='home_button' disabled={!text && imgPre === ""}>Tweet</button>
     </div>
     <div className="mobilehome_input">
    

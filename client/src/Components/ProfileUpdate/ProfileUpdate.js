@@ -45,7 +45,7 @@ const ProfileUpdate = () => {
       },
   
       body:JSON.stringify({
-      bio, location: locationn, url: dataaa.url, username: dataa
+      bio, location: locationn, url: dataaa.url, username: dataaa.secure_url
       })
     })
     navigate("/signin")

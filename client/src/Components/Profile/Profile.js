@@ -225,7 +225,7 @@ const proimage = async()=>{
     },
 
     body:JSON.stringify({
-    name, bio, location: locationn, url: dataaa.url
+    name, bio, location: locationn, url: dataaa.secure_url
     })
   })
 

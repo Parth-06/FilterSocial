@@ -59,7 +59,6 @@ const Following = () => {
         
           const data = await res.json();
          setUserdata(data)
-         console.log(data);
         }
         Fetchtweet();
     

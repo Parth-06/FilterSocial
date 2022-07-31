@@ -71,7 +71,7 @@ const TextComponent = () => {
             },
         
             body:JSON.stringify({
-             t_id: newText.id, mtweet: newText.tweet, url: dataaa.url
+             t_id: newText.id, mtweet: newText.tweet, url: dataaa.secure_url
             })
           });
         
@@ -179,7 +179,7 @@ maxRows={6}/>
 
   <h4>Limit: 150 Characters</h4>
    </div>
-   <button onClick={addItem} className='home_button' >Tweet</button>
+   <button onClick={addItem} className='home_button' disabled={!text && imgPre === ""}>Tweet</button>
    </div>
  </div>
 
