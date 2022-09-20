@@ -176,18 +176,18 @@ const Delete = async(item_id) =>{
 
 
 
-useEffect(()=>{
-  if (img){
-    const reader = new FileReader();
-    reader.onloadend = () =>{
-      setimgPre(reader.result)
-    }
-    reader.readAsDataURL(img);
-   } else{
-      setimgPre("")
-    }
-  
-  },[img])
+  useEffect(()=>{
+    if (img){
+      const reader = new FileReader();
+      reader.onloadend = () =>{
+        setimgPre(reader.result)
+      }
+      reader.readAsDataURL(img);
+    } else{
+        setimgPre("")
+      }
+    
+    },[img])
 
   const profilestateupload = async(event) =>{
     setimg(event.target.files[0])
