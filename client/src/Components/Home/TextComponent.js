@@ -5,40 +5,15 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
 import Spinner from "../Spinner";
+import useFetchToken from "../CustomHooks/UseFetchToken";
 
 const TextComponent = () => {
   const navigate = useNavigate();
   const [text, settext] = useState("");
   const [tweetArea, settweetArea] = useState([]);
-  const [userDetails, setUserDetails] = useState([]);
+  const [userDetails] = useFetchToken();
   const [img, setimg] = useState();
   const [imgPre, setimgPre] = useState("");
-
-  useEffect(() => {
-    const Callmainpage = async () => {
-      try {
-        const res = await fetch("/home", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          credentials: "include",
-        });
-        const user = await res.json();
-        setUserDetails(user);
-        if (!res.status === 200) {
-          const error = new Error(res.error);
-          throw error;
-        }
-      } catch (err) {
-        console.log(err);
-        toast.error("Please Login For Better Experience");
-        navigate("/signin");
-      }
-    };
-    Callmainpage();
-  }, []);
 
   const allheight = (value) => {
     settext(value);

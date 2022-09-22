@@ -1,59 +1,82 @@
-import React, { useContext, useState, useEffect, createContext } from "react";
+import React, {
+  useContext,
+  useState,
+  useEffect,
+  createContext,
+  useReducer,
+} from "react";
 import Pusher from "pusher-js";
+import { LikesReducer } from "../Reducers/Reducer";
 
 const FetchContext = createContext();
 
-const FetchContextProvider = ({children}) =>{
-    const [apidata, setApidata] = useState([]);
-    const [newData, setnewData] = useState([]);
-    
+const FetchContextProvider = ({ children }) => {
+  const [apidata, setApidata] = useState([]);
+  const [newData, setnewData] = useState([]);
 
-    useEffect(()=>{
-      const Fetchtweet = async () =>{ 
-    
-          const res = await fetch('/alltweets',{
-            method: "GET",
-            headers:{
-              "Content-Type" : "application/json"
-            },
-          });
-        
-          const data = await res.json();
-          setApidata(data)
-         
-        }
-        Fetchtweet()
-    
-    },[newData])
+  useEffect(() => {
+    const Fetchtweet = async () => {
+      const res = await fetch("/alltweets", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
-    useEffect(()=>{
-        const pusher = new Pusher('bfad7d924b358ce37229', {
-          cluster: 'ap2'
-        });
-      
-        
-        const channel = pusher.subscribe('maintweets');
-        channel.bind('inserted', (data) =>{
-          if(data){
-            // console.log(data);
-            setnewData(data)
-          }
-        
-        })
-      },[])
+      const data = await res.json();
+      setApidata(data);
+    };
+    Fetchtweet();
+  }, [newData]);
 
-  
-    
-    
-    return(
-        <FetchContext.Provider value={{apidata}}>
-            {children}
-        </FetchContext.Provider>
-        )
-    
-    }   
+  useEffect(() => {
+    const pusher = new Pusher("bfad7d924b358ce37229", {
+      cluster: "ap2",
+    });
+
+    const channel = pusher.subscribe("maintweets");
+    channel.bind("inserted", (data) => {
+      if (data) {
+        setnewData(data);
+      }
+    });
+
+    const channelmain = pusher.subscribe("likeupdter");
+    channelmain.bind("updated", (dataa) => {
+      if (dataa) {
+        // console.log(dataa);
+        setnewData(dataa);
+      }
+    });
+    const channeldelete = pusher.subscribe("deletedata");
+    channeldelete.bind("deleted", (deletedata) => {
+      if (deletedata) {
+        setnewData(deletedata);
+      }
+    });
+    const channelfollow = pusher.subscribe("updatingFollow");
+    channelfollow.bind("updated", (followData) => {
+      if (followData) {
+        setnewData(followData);
+      }
+    });
+  }, []);
+  const [state, dispatch] = useReducer(LikesReducer, {
+    Like: [],
+    Unlike: [],
+    Follow: [],
+    UNFollow: [],
+    Bookmark: [],
+    UnBookmark: [],
+  });
+  return (
+    <FetchContext.Provider value={{ state, dispatch, apidata, newData }}>
+      {children}
+    </FetchContext.Provider>
+  );
+};
 
 export default FetchContextProvider;
-export const TweetVal = () =>{
-    return useContext(FetchContext)
-}
+export const TweetVal = () => {
+  return useContext(FetchContext);
+};

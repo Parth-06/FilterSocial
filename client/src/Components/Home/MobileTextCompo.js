@@ -4,40 +4,15 @@ import TextareaAutosize from "react-textarea-autosize";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
+import useFetchToken from "../CustomHooks/UseFetchToken";
 
 const MobileTextCompo = () => {
   const navigate = useNavigate();
   const [text, settext] = useState("");
   const [tweetArea, settweetArea] = useState([]);
-  const [userDetails, setUserDetails] = useState([]);
+  const [userDetails] = useFetchToken();
   const [img, setimg] = useState();
   const [imgPre, setimgPre] = useState("");
-
-  useEffect(() => {
-    const Callmainpage = async () => {
-      try {
-        const res = await fetch("/home", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          credentials: "include",
-        });
-        const user = await res.json();
-        setUserDetails(user);
-        if (!res.status === 200) {
-          const error = new Error(res.error);
-          throw error;
-        }
-      } catch (err) {
-        console.log(err);
-        toast.error("Please Login For Better Experience");
-        navigate("/signin");
-      }
-    };
-    Callmainpage();
-  }, []);
 
   const allheight = (value) => {
     settext(value);
@@ -219,7 +194,6 @@ const MobileTextCompo = () => {
 
                 <h4>Limit: 150 Characters</h4>
               </div>
-              {/* <button onClick={addItem} className='home_button' >Tweet</button> */}
             </div>
           </div>
         </div>
