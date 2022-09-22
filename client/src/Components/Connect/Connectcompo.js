@@ -34,7 +34,6 @@ const Connectcompo = () => {
                       ? "/profile/" + item.username
                       : "/profile"
                   }
-                  onClick={() => setnewData(item.username)}
                 >
                   <img
                     src={item.profilepicimage}
