@@ -4,6 +4,7 @@ import "./Profile.css";
 import "react-toastify/dist/ReactToastify.css";
 import Spinner from "../Spinner";
 import useFetch from "../CustomHooks/useFetch";
+import { TweetVal } from "../../Context/FetchContext";
 
 const UserProfile = () => {
   const navigate = useNavigate();
@@ -11,6 +12,7 @@ const UserProfile = () => {
   const [userProfileDetails, setUserProfileDetails] = useState([]);
   const { username } = useParams();
   const [userDetails] = useFetch();
+  const { dispatch, newData } = TweetVal();
   let alldata = tweetdata;
   if (tweetdata) {
     alldata = alldata.filter(
