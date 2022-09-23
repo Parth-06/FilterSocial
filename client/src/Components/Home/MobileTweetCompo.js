@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import Spinner from "../Spinner";
@@ -7,10 +7,58 @@ import useFetch from "../CustomHooks/useFetch";
 import { TweetVal } from "../../Context/FetchContext";
 
 const MobileTweetCompo = () => {
-  const { dispatch } = TweetVal();
-  const [tweetdata] = useFetchTweet();
+  const { dispatch, newData } = TweetVal();
   const [userDetails] = useFetch();
+  const [tweetdata, setTweetdata] = useState([]);
+  useEffect(() => {
+    const Fetchtweet = async () => {
+      const res = await fetch("/alltweets", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
+      const data = await res.json();
+      setTweetdata(data);
+    };
+    Fetchtweet();
+  }, [newData]);
+
+  const like = (id) => {
+    dispatch({
+      type: "Like",
+      payload: id,
+    });
+    setTweetdata(
+      tweetdata.map((item) => {
+        if (item.id === id) {
+          return { ...item, hdata: [...item.hdata, userDetails.email] };
+        }
+
+        return item;
+      })
+    );
+  };
+
+  const unlike = (id) => {
+    dispatch({
+      type: "UnLike",
+      payload: id,
+    });
+    setTweetdata(
+      tweetdata.map((item) => {
+        if (item.id === id) {
+          const id = item.hdata.indexOf(userDetails.email);
+          const remove = item.hdata.splice(id, 1);
+          console.log(remove);
+          return { ...item, hdata: [...item.hdata] };
+        }
+
+        return item;
+      })
+    );
+  };
   return (
     <>
       {userDetails.bookmark === undefined ? (
@@ -85,24 +133,14 @@ const MobileTweetCompo = () => {
                             <i
                               className="fas fa-heart"
                               style={{ color: "rgb(249, 24, 128)" }}
-                              onClick={() =>
-                                dispatch({
-                                  type: "UnLike",
-                                  payload: item.id,
-                                })
-                              }
+                              onClick={() => unlike(item.id)}
                             ></i>
                           </>
                         ) : (
                           <>
                             <i
                               className="far fa-heart"
-                              onClick={() =>
-                                dispatch({
-                                  type: "Like",
-                                  payload: item.id,
-                                })
-                              }
+                              onClick={() => like(item.id)}
                             ></i>
                           </>
                         )}
