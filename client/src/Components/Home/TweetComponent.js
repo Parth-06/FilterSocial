@@ -24,7 +24,7 @@ const TweetComponent = () => {
       setTweetdata(data);
     };
     Fetchtweet();
-  }, []);
+  }, [newData]);
 
   const like = (id) => {
     dispatch({
