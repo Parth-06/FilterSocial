@@ -6,14 +6,13 @@ import "../EditProfile/EditProfile.css";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
 import Spinner from "../Spinner";
-import useFetchTweet from "../CustomHooks/UseFetchTweet";
 import useFetch from "../CustomHooks/useFetch";
 import { TweetVal } from "../../Context/FetchContext";
 
 const Profile = () => {
   const navigate = useNavigate();
-  const { dispatch } = TweetVal();
-  const [tweetdata] = useFetchTweet();
+  const { dispatch, newData } = TweetVal();
+  const [tweetdata, setTweetdata] = useState([]);
   const [userDetails] = useFetch();
   const [editPro, setEditPro] = useState(false);
   const [img, setimg] = useState();
@@ -27,6 +26,56 @@ const Profile = () => {
     alldata = alldata.filter((items) => items.email === userDetails.email);
   }
   let newtweetdata = alldata;
+
+  useEffect(() => {
+    const Fetchtweet = async () => {
+      const res = await fetch("/alltweets", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const data = await res.json();
+      setTweetdata(data);
+    };
+    Fetchtweet();
+  }, [newData]);
+
+  const like = (id) => {
+    dispatch({
+      type: "Like",
+      payload: id,
+    });
+    setTweetdata(
+      tweetdata.map((item) => {
+        if (item.id === id) {
+          return { ...item, hdata: [...item.hdata, userDetails.email] };
+        }
+
+        return item;
+      })
+    );
+  };
+
+  const unlike = (id) => {
+    dispatch({
+      type: "UnLike",
+      payload: id,
+    });
+    setTweetdata(
+      tweetdata.map((item) => {
+        if (item.id === id) {
+          const id = item.hdata.indexOf(userDetails.email);
+          const remove = item.hdata.splice(id, 1);
+          console.log(remove);
+          return { ...item, hdata: [...item.hdata] };
+        }
+
+        return item;
+      })
+    );
+  };
 
   useEffect(() => {
     if (img) {
@@ -65,9 +114,9 @@ const Profile = () => {
       const picdata = new FormData();
       picdata.append("file", img);
       picdata.append("upload_preset", "filtersocialimages");
-      picdata.append("cloud_name", "filtersocial");
+      picdata.append("cloud_name", "filtersocialnew");
       const res = await fetch(
-        "https://api.cloudinary.com/v1_1/filtersocial/image/upload",
+        "https://api.cloudinary.com/v1_1/filtersocialnew/image/upload",
         {
           method: "POST",
           body: picdata,
@@ -346,24 +395,14 @@ const Profile = () => {
                               <i
                                 className="fas fa-heart"
                                 style={{ color: "rgb(249, 24, 128)" }}
-                                onClick={() =>
-                                  dispatch({
-                                    type: "UnLike",
-                                    payload: item.id,
-                                  })
-                                }
+                                onClick={() => unlike(item.id)}
                               ></i>
                             </>
                           ) : (
                             <>
                               <i
                                 className="far fa-heart"
-                                onClick={() =>
-                                  dispatch({
-                                    type: "Like",
-                                    payload: item.id,
-                                  })
-                                }
+                                onClick={() => like(item.id)}
                               ></i>
                             </>
                           )}

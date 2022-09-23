@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import Spinner from "../Spinner";
-import useFetchTweet from "../CustomHooks/UseFetchTweet";
 import useFetch from "../CustomHooks/useFetch";
 import { TweetVal } from "../../Context/FetchContext";
 
