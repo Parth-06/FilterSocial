@@ -27,10 +27,6 @@ const TweetComponent = () => {
   }, [newData]);
 
   const like = (id) => {
-    dispatch({
-      type: "Like",
-      payload: id,
-    });
     setTweetdata(
       tweetdata.map((item) => {
         if (item.id === id) {
@@ -41,12 +37,12 @@ const TweetComponent = () => {
         return item;
       })
     );
-  };
-  const unlike = (id) => {
     dispatch({
-      type: "UnLike",
+      type: "Like",
       payload: id,
     });
+  };
+  const unlike = (id) => {
     setTweetdata(
       tweetdata.map((item) => {
         if (item.id === id) {
@@ -59,6 +55,10 @@ const TweetComponent = () => {
         return item;
       })
     );
+    dispatch({
+      type: "UnLike",
+      payload: id,
+    });
   };
 
   return (
